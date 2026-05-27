@@ -43,7 +43,7 @@
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Demo Account](#demo-account)
+- [Demo Accounts](#demo-accounts)
 - [Environment Variables](#environment-variables)
 - [API Reference](#api-reference)
 - [Design System](#design-system)
@@ -320,7 +320,7 @@ The codebase is split into two fully-typed TypeScript applications: a **Next.js 
 - **Secure password hashing** — `bcryptjs` with 12 salt rounds on every `save` cycle where `password` was modified
 - **Persistent sessions** — Token + user object written to `localStorage` under `banc-token` and `banc-user` keys, restored on hydration
 - **Protected routes** — The `ProtectedRoute` component defers rendering until `isHydrated` is true (preventing flash), then redirects unauthenticated users to `/login`
-- **Admin role** — Separate `adminOnly` middleware gates product CRUD; admin users see an "Admin Tier" badge in-app
+- **Admin role** — Separate `adminOnly` middleware gates product CRUD and the admin cart viewer; admin users see an "Admin Tier" badge in-app
 - **Rate-limited endpoints** — Global limit of 300 requests / 15 min via `express-rate-limit`
 
 ### Product Browsing
@@ -363,6 +363,20 @@ Full CRUD on the User document's embedded `addresses` array:
 | Read | Embedded in User response | Checkout, Profile |
 
 The `updateAddress` controller uses MongoDB's positional `$` operator to update the matched subdocument without touching others.
+
+### Admin — Cart Viewer
+
+Admins can view all users' active shopping carts at `/admin/carts`.
+
+- **Route** — `GET /api/admin/carts`, protected by both `protect` and `adminOnly` middleware
+- **Population** — each cart is populated with the owning user's name and email, and each cart item is populated with the product's name, price, and image — all in a single Mongoose query
+- **Computed fields** — `lineTotal` (price × quantity) and `subtotal` (sum of all line totals) are calculated server-side before the response is returned
+- **Frontend guard** — `AdminCartsClient` checks `user.role === "admin"` from `AuthContext` immediately after hydration; non-admin users are silently redirected before any API call is made
+- **UI** — each cart renders as a card showing the customer name, email, item count, subtotal, and last-updated timestamp; expanding the card reveals a row per item with thumbnail, product name, unit price, quantity, and line total
+
+| Method | Path | Auth | Description |
+|--------|------|------|-------------|
+| `GET` | `/admin/carts` | Admin | All carts with populated user + product data and computed subtotals |
 
 ## CRUD Coverage
 
@@ -1321,28 +1335,38 @@ These are intentional constraints, not oversights. Each represents a deliberate 
 | **Payment processing is simulated** | The checkout form collects card details for UI completeness only. No payment processor is integrated. No card data is transmitted to the backend or stored. Stripe integration is the obvious next step — see [Future Roadmap](#future-roadmap) |
 | **Search is client-side** | `SearchResults` fetches the full product catalogue once and filters in the browser. This works at current scale but would not be appropriate for a catalogue larger than ~1,000 products. MongoDB `$text` indexes and server-side pagination are the upgrade path |
 | **No email notifications** | Order confirmation, registration welcome, and password reset emails are not implemented. Resend or Postmark integration would be straightforward against the existing `createOrder` and `registerUser` controllers |
-| **Admin panel is API-only** | Admin product CRUD is fully implemented at the API level (`POST/PATCH/DELETE /api/admin/products`) and protected by `adminOnly` middleware. A browser-based admin dashboard UI was intentionally excluded from scope |
+| **Admin cart viewer is read-only** | Admins can view all users' carts at `/admin/carts` but cannot modify them. Cart management (clear, update quantity) remains a user-only operation by design |
 | **Order status is static** | Orders are created with status `"confirmed"` and remain there. The status field and enum (`confirmed → processing → shipped → delivered`) are modelled and ready for an update endpoint — triggering status changes is not yet wired |
 | **No real-time updates** | Cart and order state refresh on page load or explicit action. WebSocket or Server-Sent Event integration would enable multi-tab synchronisation and live order tracking |
 | **Images are externally hosted** | All product images reference external URLs (`lh3.googleusercontent.com`, `images.unsplash.com`). A production deployment would upload images to a CDN (Cloudflare R2, AWS S3) and store the CDN URL in MongoDB |
 
 ---
 
-## Demo Account
+## Demo Accounts
 
-A pre-seeded demo account is available for evaluating the full authenticated experience without registration:
+### Standard User
+
+For evaluating the full customer experience — browsing, cart, checkout, address management, order history:
 
 ```
 Email:     demo@banc.com
 Password:  Demo123!
 ```
 
-This account has:
-- A saved **Home** and **Office** address pre-populated
-- Two previous orders in the Vault (Orders tab)
-- Standard `user` role (not admin)
+Access: `/login` → full shopping flow → `/account` → `/checkout`
 
-> If the demo account does not exist, register a new account — the full flow is functional with any email and password of 6+ characters.
+### Admin
+
+For evaluating the admin cart viewer. This account has `role: "admin"` in MongoDB and can access the protected admin route:
+
+```
+Email:     admin@banc.com
+Password:  Admin1234!
+```
+
+Access: `/login` → `http://localhost:3000/admin/carts`
+
+> Logging in with the admin account issues a JWT with `role: "admin"` in its payload. The backend `adminOnly` middleware validates this on every request to `/api/admin/*`. The frontend reads the same role from `AuthContext` and redirects non-admin users before any API call is made.
 
 ---
 

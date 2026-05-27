@@ -162,3 +162,46 @@ export const clearCart = asyncHandler(async (req: Request, res: Response) => {
 
   res.status(200).json({ message: "Cart cleared successfully", cart });
 });
+
+export const getAllCarts = asyncHandler(async (_req: Request, res: Response) => {
+  const carts = await Cart.find()
+    .populate({ path: "userId", select: "name email" })
+    .populate({ path: "items.productId", select: "name price images slug" })
+    .sort({ updatedAt: -1 });
+
+  const data = carts.map((cart) => {
+    const user = cart.userId as unknown as { _id: string; name: string; email: string } | null;
+    const items = cart.items.map((item) => {
+      const product = item.productId as unknown as {
+        _id: string;
+        name: string;
+        price: number;
+        images: string[];
+        slug: string;
+      } | null;
+      return {
+        productId: product?._id ?? null,
+        name: product?.name ?? "Unknown product",
+        price: product?.price ?? 0,
+        image: product?.images?.[0] ?? "",
+        slug: product?.slug ?? "",
+        quantity: item.quantity,
+        lineTotal: (product?.price ?? 0) * item.quantity,
+      };
+    });
+
+    const subtotal = items.reduce((sum, i) => sum + i.lineTotal, 0);
+
+    return {
+      cartId: cart._id,
+      user: user ? { id: user._id, name: user.name, email: user.email } : null,
+      items,
+      subtotal,
+      itemCount: items.reduce((sum, i) => sum + i.quantity, 0),
+      updatedAt: cart.updatedAt,
+      createdAt: cart.createdAt,
+    };
+  });
+
+  res.json({ count: data.length, carts: data });
+});
