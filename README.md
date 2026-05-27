@@ -1,4 +1,4 @@
-<div align="center">
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 58 12 pm" src="https://github.com/user-attachments/assets/ac452a1e-c8b3-4a4e-82e7-aa6bab946fa1" /><div align="center">
 
 <br />
 
@@ -26,7 +26,7 @@
 
 <br />
 
-> BANC is a production-grade luxury watch ecommerce platform. Every interaction — from the first scroll to the final order confirmation — is designed to feel considered, unhurried, and deliberate. Built on the modern React 19 / Next.js 16 App Router, a hardened Express 5 API, and MongoDB Atlas persistence.
+> BANC is a production-grade luxury watch ecommerce platform.  Built on the modern React 19 / Next.js 16 App Router, Express 5 API, and MongoDB Atlas.
 
 <br />
 
@@ -43,7 +43,7 @@
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Demo Accounts](#demo-accounts)
+- [Demo Account](#demo-account)
 - [Environment Variables](#environment-variables)
 - [API Reference](#api-reference)
 - [Design System](#design-system)
@@ -60,255 +60,79 @@
 
 ## Overview
 
-BANC (an atelier of precision timepieces) exists where Milanese craftsmanship meets modern digital commerce. The platform handles the complete acquisition journey — product discovery, detailed inspection, cart management, authenticated checkout, address management, and post-purchase order archiving — wrapped in a cinematic, monochromatic UI that mirrors the restraint of the objects it sells.
-
 The codebase is split into two fully-typed TypeScript applications: a **Next.js 16 App Router frontend** communicating with a **REST API built on Express 5**, backed by **MongoDB Atlas** with Mongoose schema validation throughout.
 
 ---
 
 ## Screenshots
 
-> *Replace each placeholder below with actual screenshots or screen recordings.*
+
 
 <br />
 
-**Homepage — Split-Panel Hero**
-```
-┌───────────────────────────────────────────────────────────┐
-│  BANC            COLLECTIONS  MENS  WOMENS  JOURNAL  🔍 ☀ 👤 🛍 │
-├────────────────────────────┬──────────────────────────────┤
-│                            │                              │
-│  BANC HOROLOGY — ATELIER   │                              │
-│                            │    [ Hero Watch Image ]      │
-│  AETERNA PRECISION         │    grayscale · full bleed    │
-│                            │    gradient overlay          │
-│  [ Explore Heritage ]      │                              │
-│  [ View Spec        ]      │                              │
-│                            │    Calibre ——————            │
-└────────────────────────────┴──────────────────────────────┘
-```
 
-**Navbar — Mega Menu (Collections)**
-```
-┌───────────────────────────────────────────────────────────┐
-│  BANC     [ COLLECTIONS ]   MENS   WOMENS   JOURNAL        │
-├───────────────────────────────────────────────────────────┤
-│  New Arrivals     │  By Category    │  [Editorial Image]  │
-│  ─────────────    │  ─────────────  │                     │
-│  Aeterna Series   │  Mens           │  FEATURED           │
-│  Meridian I       │  Womens         │  Meridian Noir      │
-│  Calibre 01       │  Limited Ed.    │  ──────────────     │
-│                   │  Bespoke        │  Shop Now →         │
-└───────────────────────────────────────────────────────────┘
-```
+**Login**
 
-**Collections Grid — Category Filter**
-```
-┌───────────────────────────────────────────────────────────┐
-│  BANC HOROLOGY — COLLECTION                               │
-│  THE CATALOGUE                                            │
-│                                                           │
-│  Filter by: [ All ▾ ]   Mens   Womens   Limited           │
-│  ─────────────────────────────────────────────────────── │
-│  ┌───────────┐  ┌───────────┐  ┌───────────┐            │
-│  │  [Watch]  │  │  [Watch]  │  │  [Watch]  │            │
-│  │ grayscale │  │ grayscale │  │ grayscale │            │
-│  │           │  │           │  │           │            │
-│  │ AETERNA I │  │ MERIDIAN  │  │ CALIBRE 0 │            │
-│  │ Mens      │  │ Womens    │  │ Limited   │            │
-│  │ €12,500   │  │ €9,800    │  │ €24,000   │            │
-│  └───────────┘  └───────────┘  └───────────┘            │
-└───────────────────────────────────────────────────────────┘
-```
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 55 43 pm" src="https://github.com/user-attachments/assets/00bcbab7-7cc3-4a98-b345-f79fcad2f420" />
+
+
+**Homepageo**
+
+
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 55 56 pm" src="https://github.com/user-attachments/assets/6a71bac5-38f5-4238-ab1f-2ac805d27415" />
+
+
+**Navbar**
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 56 07 pm" src="https://github.com/user-attachments/assets/8e507000-a760-47a4-9e5b-8fb014e03d34" />
+
+**Collections**
+
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 56 42 pm" src="https://github.com/user-attachments/assets/21428429-8b4a-483b-9b80-09f22c051e87" />
+
 
 **Product Detail — Gallery + Info**
-```
-┌───────────────────────────────────────────────────────────┐
-│  ┌────────────────────┐  │  AETERNA I                     │
-│  │                    │  │  Mens · Calibre 001            │
-│  │   [ Main Image ]   │  │                                │
-│  │   high-res watch   │  │  €12,500                       │
-│  │                    │  │                                │
-│  └────────────────────┘  │  ─────────────────────────    │
-│  [img1] [img2] [img3]    │  [ Add to Collection ]        │
-│                          │                                │
-│                          │  ▸ Materials & Construction   │
-│                          │  ▸ Movement Specifications    │
-│                          │  ▸ Dimensions & Water Resist. │
-│                          │  ▸ Warranty & Service         │
-└──────────────────────────┴────────────────────────────────┘
-  ─────────────────────────────────────────────────────────
-  CURATED ALTERNATIVES
-  [Watch 1]  [Watch 2]  [Watch 3]
-```
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 56 57 pm" src="https://github.com/user-attachments/assets/77bab695-d6cb-478e-b19e-f1c5ea13c532" />
+
+
+
 
 **Shopping Cart**
-```
-┌───────────────────────────────────────────────────────────┐
-│  SHOPPING CART                                            │
-│  ─────────────────────────────────────────────────────── │
-│  ┌──────┐  AETERNA I                         €12,500     │
-│  │[img] │  Mens                                          │
-│  │      │                     [ − ] 01 [ + ]  [ Remove ] │
-│  └──────┘                                                │
-│  ─────────────────────────────────────────────────────── │
-│              │  SUMMARY                                   │
-│              │  Subtotal           €12,500                │
-│              │  Shipping           Complimentary          │
-│              │  VAT (Included)     €2,083                 │
-│              │  ─────────────────────────────            │
-│              │  Total              €12,500                │
-│              │                                            │
-│              │  [ Proceed to Checkout ]                   │
-│              │  [ Clear Cart          ]                   │
-└──────────────┴────────────────────────────────────────────┘
-```
+
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 57 22 pm" src="https://github.com/user-attachments/assets/4ad8ff67-4d1a-4be7-9c06-51a1618c7a33" />
+
 
 **Checkout Flow**
-```
-┌───────────────────────────────────────────────────────────┐
-│  BANC HOROLOGY                                            │
-│  CHECKOUT                                                 │
-│  ─────────────────────────────────────────────────────── │
-│  01 — Delivery Address       │  ORDER SUMMARY             │
-│                               │  ┌──────┐ AETERNA I      │
-│  ╔═══════════════════╗        │  │ [img]│ Qty 1  €12,500 │
-│  ║ ● HOME            ║        │  └──────┘                │
-│  ║   12 Baker Street ║        │  ──────────────────────  │
-│  ╚═══════════════════╝        │  Subtotal      €12,500   │
-│  ○ OFFICE                     │  Shipping      Free      │
-│    5 Via Montenapoleone        │  VAT (incl)    €2,083   │
-│                               │  ──────────────────────  │
-│  + Add New Address            │  Total         €12,500   │
-│  ─────────────────────────── │                           │
-│  02 — Shipping Method         │  [ Complete Purchase ]   │
-│  ● Complimentary Express      │                           │
-│  ─────────────────────────── │  🔒 256-bit SSL secured   │
-│  03 — Payment Details         │                           │
-│  Cardholder Name ____________ │                           │
-│  Card Number  0000 0000 0000  │                           │
-│  Expiry  MM/YY    CVV  •••    │                           │
-└───────────────────────────────┴───────────────────────────┘
-```
+
+
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 57 38 pm" src="https://github.com/user-attachments/assets/c3a4fec3-007c-4132-8ac6-f37354e3e160" />
+
 
 **Order Confirmation**
-```
-┌───────────────────────────────────────────────────────────┐
-│  [ watch movement bg — full bleed, blurred ]              │
-│                                                           │
-│            ╭──────────────────╮                           │
-│            │   ◯ checkmark ◯  │  ← SVG stroke animation  │
-│            ╰──────────────────╯                           │
-│                                                           │
-│              ● Order Verified                             │
-│                                                           │
-│           PURCHASE COMPLETE                               │
-│    Your timepiece has been reserved.                      │
-│                                                           │
-│  ┌─────────────────────────────────────────────┐         │
-│  │  Order Reference      Status                │         │
-│  │  BN-2026-A1B2C3       confirmed             │         │
-│  │  ─────────────────────────────────────────  │         │
-│  │  Aeterna I × 1                    €12,500   │         │
-│  │  Total                            €12,500   │         │
-│  │  ─────────────────────────────────────────  │         │
-│  │  Delivery: 12 Baker St, London, SW1A 1AA    │         │
-│  └─────────────────────────────────────────────┘         │
-│                                                           │
-│  [ View My Collection ]    [ Continue Shopping ]          │
-└───────────────────────────────────────────────────────────┘
-```
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 58 01 pm" src="https://github.com/user-attachments/assets/81395cd7-dc82-4e89-ac20-651c4089d87c" />
+
 
 **Account — Profile Tab**
-```
-┌───────────────────────────────────────────────────────────┐
-│  BANC HOROLOGY — MEMBER                                   │
-│  HARRISON WELLS                            Titanium Tier  │
-│  ─────────────────────────────────────────────────────── │
-│  [ Profile ]    Orders                                    │
-│  ─────────────────────────────────────────────────────── │
-│  PERSONAL DETAILS                        [ Edit Profile ] │
-│  Name: Harrison Wells                    [ Sign Out     ] │
-│  Email: h.wells@banc.io  (read-only)                     │
-│  Member Since: 2026                                       │
-│  ─────────────────────────────────────────────────────── │
-│  ADDRESSES                                                │
-│  ┌──────────────────┐  ┌──────────────────┐              │
-│  │ HOME             │  │ OFFICE           │  [✎] [✕]    │
-│  │ 12 Baker Street  │  │ 5 Via Montenapol.│             │
-│  │ London, SW1A 1AA │  │ Milano, 20121    │             │
-│  └──────────────────┘  └──────────────────┘              │
-│  + Add Address                                            │
-└───────────────────────────────────────────────────────────┘
-```
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 58 25 pm" src="https://github.com/user-attachments/assets/360f9e19-dbd2-4c09-9a73-fda54333f3ab" />
+
+
+
 
 **Account — Orders Tab**
-```
-┌───────────────────────────────────────────────────────────┐
-│  YOUR ACQUISITIONS                                        │
-│  THE VAULT                                                │
-│  ─────────────────────────────────────────────────────── │
-│  ┌───────────────────────────────────────────────────┐   │
-│  │  Order Reference    Date           Total          │   │
-│  │  BN-2026-A1B2C3     26 May 2026    €12,500        │   │
-│  │  ────────────────────────────────────────────── │   │
-│  │  AETERNA I                                 × 1   │   │
-│  └───────────────────────────────────────────────────┘   │
-│  ┌───────────────────────────────────────────────────┐   │
-│  │  BN-2026-XR9K2      12 Apr 2026    €9,800         │   │
-│  │  ────────────────────────────────────────────── │   │
-│  │  MERIDIAN WOMENS                           × 1   │   │
-│  └───────────────────────────────────────────────────┘   │
-└───────────────────────────────────────────────────────────┘
-```
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 58 40 pm" src="https://github.com/user-attachments/assets/556dd919-6d57-4274-90d1-349f420ea670" />
+
+
+
 
 **Mobile Navigation**
-```
-┌─────────────────────────┐
-│  BANC             🔍  🛍 │
-│  ═══                    │
-├─────────────────────────┤
-│  COLLECTIONS          ▸ │
-│  MENS                 ▸ │
-│  WOMENS               ▸ │
-│  JOURNAL              ▸ │
-│  ─────────────────────  │
-│  Account                │
-│  ─────────────────────  │
-│  ☀ Light Mode           │
-├─────────────────────────┤
-│  (accordion expands ↓)  │
-│  COLLECTIONS            │
-│  › New Arrivals         │
-│  › Mens                 │
-│  › Womens               │
-│  › Limited Edition      │
-└─────────────────────────┘
-```
+<img width="398" height="901" alt="Screenshot 2026-05-27 at 10 59 00 pm" src="https://github.com/user-attachments/assets/016111a2-8589-4ad9-b680-7d020029b9b7" />
+
 
 **About / Journal Page**
-```
-┌───────────────────────────────────────────────────────────┐
-│  [ Full-bleed Milan skyline — grayscale ]                 │
-│                                                           │
-│  BANC HOROLOGY — EST. MMXXIV                              │
-│  THE ATELIER                                              │
-│  ─────────────────────────────────────────────────────── │
-│  [ Portrait image ]   The BANC atelier was founded on    │
-│                       a single conviction: that a watch   │
-│                       is not merely an instrument of      │
-│                       time but an argument for precision. │
-│  ─────────────────────────────────────────────────────── │
-│  id="craftsmanship"                                       │
-│  CRAFTSMANSHIP                                            │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐        │
-│  │ Material    │ │ Assembly    │ │ Finishing   │        │
-│  │ Rigour      │ │ Precision   │ │ & Patina    │        │
-│  └─────────────┘ └─────────────┘ └─────────────┘        │
-│  ─────────────────────────────────────────────────────── │
-│  "Precision is the only luxury we cannot afford to lose." │
-└───────────────────────────────────────────────────────────┘
-```
+
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 59 27 pm" src="https://github.com/user-attachments/assets/0637b643-003f-4507-a59f-6221500acd77" />
+
+**Admin page**
+<img width="1512" height="982" alt="Screenshot 2026-05-27 at 10 59 52 pm" src="https://github.com/user-attachments/assets/e4cf98b6-8b96-4a67-b25e-40575ca6aeb6" />
 
 ---
 
@@ -320,7 +144,7 @@ The codebase is split into two fully-typed TypeScript applications: a **Next.js 
 - **Secure password hashing** — `bcryptjs` with 12 salt rounds on every `save` cycle where `password` was modified
 - **Persistent sessions** — Token + user object written to `localStorage` under `banc-token` and `banc-user` keys, restored on hydration
 - **Protected routes** — The `ProtectedRoute` component defers rendering until `isHydrated` is true (preventing flash), then redirects unauthenticated users to `/login`
-- **Admin role** — Separate `adminOnly` middleware gates product CRUD and the admin cart viewer; admin users see an "Admin Tier" badge in-app
+- **Admin role** — Separate `adminOnly` middleware gates product CRUD and the cart viewer; admin users see an "Admin Tier" badge in-app and can access `/admin/carts`
 - **Rate-limited endpoints** — Global limit of 300 requests / 15 min via `express-rate-limit`
 
 ### Product Browsing
@@ -366,17 +190,18 @@ The `updateAddress` controller uses MongoDB's positional `$` operator to update 
 
 ### Admin — Cart Viewer
 
-Admins can view all users' active shopping carts at `/admin/carts`.
+A lightweight admin feature allowing administrators to inspect all active user carts in real time:
 
-- **Route** — `GET /api/admin/carts`, protected by both `protect` and `adminOnly` middleware
-- **Population** — each cart is populated with the owning user's name and email, and each cart item is populated with the product's name, price, and image — all in a single Mongoose query
-- **Computed fields** — `lineTotal` (price × quantity) and `subtotal` (sum of all line totals) are calculated server-side before the response is returned
-- **Frontend guard** — `AdminCartsClient` checks `user.role === "admin"` from `AuthContext` immediately after hydration; non-admin users are silently redirected before any API call is made
-- **UI** — each cart renders as a card showing the customer name, email, item count, subtotal, and last-updated timestamp; expanding the card reveals a row per item with thumbnail, product name, unit price, quantity, and line total
+- **Role-gated access** — The `/admin/carts` page performs a client-side role check (`user.role !== "admin"`) after hydration; non-admin users are redirected to `/`
+- **Backend protection** — `protect` + `adminOnly` middleware chain applied to all `/api/admin/*` routes
+- **Double-populate** — `Cart.find().populate("userId").populate("items.productId")` resolves user name/email and full product details in one query
+- **Read-only** — Admins can view cart contents but cannot modify them; intentionally scoped
 
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/admin/carts` | Admin | All carts with populated user + product data and computed subtotals |
+| Operation | Endpoint | UI Location |
+|-----------|----------|-------------|
+| Read all carts | `GET /api/admin/carts` | `/admin/carts` |
+
+Each cart card shows customer name and email, item count, subtotal, last updated timestamp, and a full item breakdown with thumbnails, unit prices, quantities, and line totals.
 
 ## CRUD Coverage
 
@@ -387,6 +212,7 @@ Admins can view all users' active shopping carts at `/admin/carts`.
 | Cart | Add Item | View Cart | Update Quantity | Remove Item |
 | Addresses | Add Address | View Addresses | Edit Address | Delete Address |
 | Orders | Create Order | View Orders | Status Lifecycle | — |
+| Admin (Carts) | — | View All Carts | — | — |
 
 
 ### Design & Interaction
@@ -1335,7 +1161,7 @@ These are intentional constraints, not oversights. Each represents a deliberate 
 | **Payment processing is simulated** | The checkout form collects card details for UI completeness only. No payment processor is integrated. No card data is transmitted to the backend or stored. Stripe integration is the obvious next step — see [Future Roadmap](#future-roadmap) |
 | **Search is client-side** | `SearchResults` fetches the full product catalogue once and filters in the browser. This works at current scale but would not be appropriate for a catalogue larger than ~1,000 products. MongoDB `$text` indexes and server-side pagination are the upgrade path |
 | **No email notifications** | Order confirmation, registration welcome, and password reset emails are not implemented. Resend or Postmark integration would be straightforward against the existing `createOrder` and `registerUser` controllers |
-| **Admin cart viewer is read-only** | Admins can view all users' carts at `/admin/carts` but cannot modify them. Cart management (clear, update quantity) remains a user-only operation by design |
+| **Admin features are read-only** | The admin cart viewer (`/admin/carts`) is intentionally read-only. Admin product CRUD is implemented at the API level (`POST/PATCH/DELETE /api/admin/products`) but has no browser UI — a full admin dashboard was excluded from scope |
 | **Order status is static** | Orders are created with status `"confirmed"` and remain there. The status field and enum (`confirmed → processing → shipped → delivered`) are modelled and ready for an update endpoint — triggering status changes is not yet wired |
 | **No real-time updates** | Cart and order state refresh on page load or explicit action. WebSocket or Server-Sent Event integration would enable multi-tab synchronisation and live order tracking |
 | **Images are externally hosted** | All product images reference external URLs (`lh3.googleusercontent.com`, `images.unsplash.com`). A production deployment would upload images to a CDN (Cloudflare R2, AWS S3) and store the CDN URL in MongoDB |
@@ -1346,27 +1172,35 @@ These are intentional constraints, not oversights. Each represents a deliberate 
 
 ### Standard User
 
-For evaluating the full customer experience — browsing, cart, checkout, address management, order history:
+A pre-seeded demo account is available for evaluating the full authenticated experience without registration:
 
 ```
 Email:     demo@banc.com
 Password:  Demo123!
 ```
 
-Access: `/login` → full shopping flow → `/account` → `/checkout`
+This account has:
+- A saved **Home** and **Office** address pre-populated
+- Two previous orders in the Vault (Orders tab)
+- Standard `user` role (not admin)
 
-### Admin
+> If the demo account does not exist, register a new account — the full flow is functional with any email and password of 6+ characters.
 
-For evaluating the admin cart viewer. This account has `role: "admin"` in MongoDB and can access the protected admin route:
+### Admin Account
+
+A dedicated admin account is available to evaluate the admin cart viewer:
 
 ```
 Email:     admin@banc.com
 Password:  Admin1234!
 ```
 
-Access: `/login` → `http://localhost:3000/admin/carts`
+This account has:
+- `role: "admin"` set in MongoDB
+- Access to the **Admin Cart Viewer** at `/admin/carts`
+- An "Admin Tier" badge visible in the account page
 
-> Logging in with the admin account issues a JWT with `role: "admin"` in its payload. The backend `adminOnly` middleware validates this on every request to `/api/admin/*`. The frontend reads the same role from `AuthContext` and redirects non-admin users before any API call is made.
+Navigate to `/admin/carts` while logged in as admin to view all active user shopping carts.
 
 ---
 
