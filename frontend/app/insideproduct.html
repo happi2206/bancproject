@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#5e5e5e",
+                    "on-secondary-container": "#b8b8b8",
+                    "background": "#121414",
+                    "surface-tint": "#c6c6c6",
+                    "surface-container-low": "#1a1c1c",
+                    "secondary-container": "#484949",
+                    "surface-container-highest": "#333535",
+                    "on-tertiary": "#2f3131",
+                    "surface-variant": "#333535",
+                    "on-background": "#e2e2e2",
+                    "surface-container": "#1e2020",
+                    "primary": "#c6c6c6",
+                    "surface": "#121414",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface-dim": "#121414",
+                    "inverse-on-surface": "#2f3131",
+                    "on-secondary": "#2f3131",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-secondary-fixed-variant": "#464747",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-bright": "#37393a",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#c7c6c6",
+                    "on-primary": "#303030",
+                    "primary-fixed": "#e2e2e2",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-primary-container": "#757575",
+                    "surface-container-high": "#282a2b",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e3e2e2",
+                    "on-tertiary-container": "#747576",
+                    "on-primary-fixed-variant": "#474747",
+                    "inverse-surface": "#e2e2e2",
+                    "tertiary-container": "#000000",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-lowest": "#0c0f0f",
+                    "outline": "#988e90",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "outline-variant": "#4c4546",
+                    "on-surface": "#e2e2e2",
+                    "on-primary-fixed": "#1b1b1b",
+                    "tertiary": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "on-surface-variant": "#cfc4c5",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "max-width": "1440px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Bebas Neue"],
+                    "headline-lg-mobile": ["Bebas Neue"],
+                    "headline-lg": ["Bebas Neue"],
+                    "body-md": ["Bodoni Moda"],
+                    "label-sm": ["Geist"],
+                    "body-lg": ["Bodoni Moda"],
+                    "display-lg": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["48px", {"lineHeight": "48px", "fontWeight": "400"}],
+                    "headline-lg": ["64px", {"lineHeight": "64px", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "display-lg": ["120px", {"lineHeight": "100px", "letterSpacing": "0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #000000; color: #e2e2e2; }
+      .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(168, 168, 168, 0.1); }
+      .ghost-border { border: 1px solid rgba(168, 168, 168, 0.2); }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-xl dark:bg-surface/10 border-b border-outline/20">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-12">
+<a class="font-display-lg text-headline-lg tracking-[0.1em] text-on-surface dark:text-on-surface" href="#">BANC</a>
+<div class="hidden md:flex gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary border-b border-primary pb-1" href="#">Collections</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface/70 hover:text-on-surface transition-colors duration-300" href="#">Heritage</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface/70 hover:text-on-surface transition-colors duration-300" href="#">Bespoke</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface/70 hover:text-on-surface transition-colors duration-300" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:block relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface/50 text-sm">search</span>
+<input class="bg-transparent border-b border-outline/20 text-label-sm uppercase tracking-widest pl-8 py-1 focus:outline-none focus:border-primary transition-all w-48" placeholder="SEARCH" type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity">shopping_bag</button>
+<button class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity">person</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-40 max-w-max-width mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Side: Product Gallery (Asymmetric Layout) -->
+<div class="lg:col-span-7 space-y-12">
+<!-- Large Main View -->
+<div class="bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-700" data-alt="A macro cinematic shot of a luxury watch movement with exposed gears and oscillating balance wheel. The lighting is low-key, highlighting the brushed metallic surfaces and precision-engineered parts against a deep matte black background. Subtle reflections of cool white light glint off the polished edges, emphasizing a futuristic and sophisticated Milanese aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ6o5hZIXBS9qhIxrg-CjkH3Q5Vp9iYez0HdoRBzheW-slhdINeWtSRQl_JqDMRjAbFpGGtFIX88nw7BXddxT-_--jGbdb1cOuQNxMvdEQUheyk6Uyz2jZUukMzcRk_pHgXtLzY8Z7dFFUlrb6B0sLD1st4ZPeb5FgBqFKoW7rXL6eZH6hsDnhXyG1NDjXSrTNUXaBeCIJTMGSvcuDF5h2KdpZ2rgWJFqV-BtCwhp5tPVgXxWI2wBx0muNUPotX-W03RVdbFtx7WE"/>
+</div>
+<!-- Secondary Detail Views -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest overflow-hidden mt-12">
+<img class="w-full aspect-[4/5] object-cover opacity-80 hover:opacity-100 transition-opacity duration-700" data-alt="Close-up vertical shot of a minimalist watch dial featuring monospaced technical typography and surgical steel hands. The background is a velvety deep black with atmospheric depth and soft gradients. The composition is architectural and precise, reflecting the quiet luxury and technical excellence of high-end horology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdixbGak4wghCoe-q3iT5CsbmjzpQpdVTMDsP7tg1_ze3PvtTZFnpsFjLR0EzzltMq_Z5K5uYFfe_kc-zl-yjH6KojEQPhm5gifHI4U-EUs8Hi_puRu3A4I8qCSpgQnCcnuGgJgwQyh34V9Ne-g2Cc724tW2GT-uF0ZLCtIrhfN-V0K9V-TGmABr6j9sv_4ZdYMglHt8TLx-dhS9su1GuRWWsBL-uWKQ3QM9MH70A6CB70wKmGa2LlKPSiMZoHifHLj7e_9yAaWuU"/>
+</div>
+<div class="bg-surface-container-lowest overflow-hidden">
+<img class="w-full aspect-[4/5] object-cover opacity-80 hover:opacity-100 transition-opacity duration-700" data-alt="A dramatic profile shot of a luxury watch casing showing the textured crown and the smooth curve of the sapphire glass crystal. The image is rendered in high-contrast monochrome with silver metallic accents. The lighting mimics a professional studio environment with sharp highlights and deep, clean shadows, creating a cinematic fashion-forward impact." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPm7UZLCkys3ypsfuH0LVtPDYdbHmrgRvZ64PruZ9KWwHLWRUg2vatsjUsivm3ffbjZuflfoYk1edmGA51j9fMVv2cyl4dslI-Y9Lc4_QVMMZucOmkbLjqtgy2mWXPbRFU49x89cqHiQhXwKC2O3lKWV85oVmdQIpPzAs4M3Bw1mk0GvBlSXIzU-EH1XsPGoPDxKrD3lnc4RghiIH0Sx80lr7kUjiRSTuGTj2jJNcdymJ2AaG-hXG7ihUT9eBLQ8Jpy_-EPLoeHk0"/>
+</div>
+</div>
+<!-- Detail Text Block -->
+<div class="py-20 max-w-xl">
+<h3 class="font-headline-md text-headline-md uppercase mb-8">Engineering Purity</h3>
+<p class="font-body-lg text-body-lg text-on-surface/80 leading-relaxed mb-6">
+                        The BANC SERIES 01 represents a total commitment to structural integrity. Every surface is machined from a single block of Grade 5 titanium, then finished by hand in our Milanese atelier to achieve a matte-black architectural depth.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface/60">
+                        The movement is a proprietary automatic caliber with a 72-hour power reserve, visible through a smoked sapphire caseback that simulates the darkness of a moonless night.
+                    </p>
+</div>
+<!-- Full Width Detail Image -->
+<div class="bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-[600px] object-cover opacity-90 hover:opacity-100 transition-opacity duration-700" data-alt="Ultra-wide cinematic shot of a watch worn on a wrist in a minimalist concrete architectural setting. The lighting is diffused and ethereal, coming from one side to create long, soft shadows. The overall aesthetic is one of quiet luxury, material excellence, and futuristic minimalism, dominated by blacks, greys, and silver highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQsW9WSQSkpz1iaunYcpeQfHUE1XokMp_NSALO2yCc76pIhraTDKnujif03BD-xgeX1XL6QPIAr33QQdv9oOXPP00z4EkYS3wQNu8khaB8BpRzZ2z7fCtILaVJHBWRUTEKC54XbiNfotunTeeTD9es4fDdQAOJh3qZHIJpqLr9jqfAbWPkeyig_93AoNkHhfNBPiuHkEOur4FcCPnvSSd59kqONpbojX7vtmxMSCrwJOWMtm5CANGMmrdvXdYbyqx3cCqw5khbDw"/>
+</div>
+</div>
+<!-- Right Side: Sticky Info -->
+<div class="lg:col-span-5 relative">
+<div class="sticky top-32 space-y-10 pl-0 lg:pl-12">
+<!-- Identity -->
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-primary/60 mb-4 block">Collection: Heritage</span>
+<h1 class="font-headline-lg text-headline-lg uppercase mb-2">Monolith v.1</h1>
+<p class="font-headline-md text-headline-md text-primary">$12,400.00</p>
+</div>
+<!-- Description -->
+<p class="font-body-md text-body-md text-on-surface/70 leading-relaxed">
+                        A study in matte textures and sharp light. The Monolith v.1 is designed for those who value the silence of superior engineering over the noise of tradition.
+                    </p>
+<!-- CTAs -->
+<div class="space-y-4">
+<button class="w-full bg-white text-black py-5 font-label-sm text-label-sm uppercase tracking-widest font-bold hover:bg-primary transition-colors duration-300">
+                            Acquire Now
+                        </button>
+<button class="w-full bg-transparent border border-white/20 text-on-surface py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/5 transition-colors duration-300">
+                            Book Private Viewing
+                        </button>
+</div>
+<!-- Specs Chips -->
+<div class="flex flex-wrap gap-3">
+<span class="ghost-border px-4 py-1 font-label-sm text-[10px] uppercase tracking-tighter text-on-surface/60">Automatic Caliber</span>
+<span class="ghost-border px-4 py-1 font-label-sm text-[10px] uppercase tracking-tighter text-on-surface/60">72HR Reserve</span>
+<span class="ghost-border px-4 py-1 font-label-sm text-[10px] uppercase tracking-tighter text-on-surface/60">Grade 5 Titanium</span>
+<span class="ghost-border px-4 py-1 font-label-sm text-[10px] uppercase tracking-tighter text-on-surface/60">Water 100M</span>
+</div>
+<!-- Accordion Sections -->
+<div class="divide-y divide-outline/10 border-t border-outline/10">
+<div class="py-6">
+<button class="w-full flex justify-between items-center group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Specifications</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">add</span>
+</button>
+</div>
+<div class="py-6">
+<button class="w-full flex justify-between items-center group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Shipping &amp; Returns</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">add</span>
+</button>
+</div>
+<div class="py-6">
+<button class="w-full flex justify-between items-center group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Care &amp; Maintenance</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">add</span>
+</button>
+</div>
+</div>
+<!-- Social Share -->
+<div class="flex items-center gap-6 pt-4">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface/40">Share</span>
+<a class="text-on-surface/60 hover:text-primary transition-colors font-label-sm text-xs" href="#">Instagram</a>
+<a class="text-on-surface/60 hover:text-primary transition-colors font-label-sm text-xs" href="#">Journal</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-40">
+<h2 class="font-headline-md text-headline-md uppercase mb-12 tracking-[0.2em]">Curated Alternates</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-lowest mb-6">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" data-alt="High-end luxury watch displayed on a stone pedestal with sharp dramatic lighting. The watch has a dark dial and a high-shine silver strap. The background is a minimalist black environment with subtle smoke textures, creating a mysterious and expensive mood consistent with Milanese luxury design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhuRekba4IKPdsVTKYovd4KBeuEjJaiVTCnqwlz0Dbb84YHMuW79dBjIIGVrQrbWI-oaZMcBVzoLdmUrKW_ia5nGCXX4INiWz6g4elYOOEMbWslOehOfYuzWzSkmd8dunsiPqnWLwzxYyoOHh_TZmlqPAtxmFQVAeshFPEZymQLmNCqXcwrytt3LP5dHQFIIJePkXPPvlBkOK5zvQymqmLxibMtf2c2fB_58iT9dgatO3oajYjPlxn9RLQJT5ygJJtlIsDi1tP11U"/>
+</div>
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface/40 mb-2 block">Bespoke</span>
+<h4 class="font-headline-md text-body-lg uppercase group-hover:text-primary transition-colors">Obsidian Chrono</h4>
+<p class="font-label-sm text-label-sm text-on-surface/60">$15,200</p>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-lowest mb-6">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" data-alt="An elegant silver watch with a mesh bracelet strap, shot from a low angle on a reflective black surface. The lighting creates a halo effect around the watch face. The aesthetic is futuristic and clean, emphasizing technical sharpness and material purity in a monochrome palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXBODA5bwXna8p7IIq-GfHO-lz67C8WA98953yjnWgBK59RsYg0kmYNa7NdGE8dNsdOFq5VGv-lqBvq9n19xRPSwCGrpqupOxjwcMn6RHiNw9JyqMEw1D3Sdk1PW4RPXs_s4lTpuFxuEUNIhzWlvCQiT3QECUNELJrLOil3gTaoGuJhJV5JtOQT5EjEIO4ZgQyYYO-Jn_xsBslmobpQG5oDHjJXjjMSR--7hx_by3xDJASL_XSG-NrxuYyPvS6m_qVXJTrmhPOSnw"/>
+</div>
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface/40 mb-2 block">Heritage</span>
+<h4 class="font-headline-md text-body-lg uppercase group-hover:text-primary transition-colors">Spectre II</h4>
+<p class="font-label-sm text-label-sm text-on-surface/60">$8,900</p>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-lowest mb-6">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" data-alt="Macro photography of a watch crown and side buttons with fine knurled textures. The image is extremely high detail, showing every minute scratch and polished edge of the metal. Lighting is cold and technical, highlighting the high-tech fashion tension of the design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_tPiYR_VOSN__xH6sO2SdSCGEvHOGXB1Hqa24VIYLwBtmgM62hAGO82v1Q_vlz_61T8f3ii7fg_fOsuvo9PHmYpkcgvg36qBgSJSpKwVV_QSCbLWEeGqzlR7iv4Qtg1Y604RI4irLNxv37UBJlNMFc09NOxFnjKqowU9pV8XjvAY-bEflTbYAB5pjpCpj9d9u_GTjFkPDb3dlEDObsQsoWodx_WNjuEYk3ot4_0JrTEW4kiai7tKuuGm8AgKNdvZWyBotKA0tb3M"/>
+</div>
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface/40 mb-2 block">Collections</span>
+<h4 class="font-headline-md text-body-lg uppercase group-hover:text-primary transition-colors">Lunar Orbit</h4>
+<p class="font-label-sm text-label-sm text-on-surface/60">$11,500</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 px-margin-desktop bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-max-width mx-auto items-start">
+<div class="md:col-span-2">
+<div class="font-headline-lg text-headline-lg text-on-surface mb-8">BANC</div>
+<p class="font-body-md text-body-md text-on-surface/50 max-w-sm mb-8">
+                    Defining the frontier of Milanese horology through architectural precision and quiet luxury.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-2">Connect</span>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Instagram</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Journal</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-2">Legal</span>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface/50 hover:text-on-surface transition-colors duration-500" href="#">Sustainability</a>
+</div>
+</div>
+<div class="max-w-max-width mx-auto mt-20 pt-8 border-t border-outline/5">
+<p class="font-label-sm text-[10px] text-on-surface/30 tracking-[0.3em] uppercase">
+                © 2024 BANC HOROLOGY. MANUFACTURED IN MILAN.
+            </p>
+</div>
+</footer>
+</body></html>

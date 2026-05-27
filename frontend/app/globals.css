@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surface & background colors */
+  --color-background: #121414;
+  --color-surface: #121414;
+  --color-surface-dim: #121414;
+  --color-surface-bright: #37393a;
+  --color-surface-container-lowest: #0c0f0f;
+  --color-surface-container-low: #1a1c1c;
+  --color-surface-container: #1e2020;
+  --color-surface-container-high: #282a2b;
+  --color-surface-container-highest: #333535;
+  --color-surface-variant: #333535;
+  --color-surface-tint: #c6c6c6;
+
+  /* Primary */
+  --color-primary: #c6c6c6;
+  --color-primary-fixed: #e2e2e2;
+  --color-primary-fixed-dim: #c6c6c6;
+  --color-primary-container: #000000;
+  --color-inverse-primary: #5e5e5e;
+  --color-on-primary: #303030;
+  --color-on-primary-fixed: #1b1b1b;
+  --color-on-primary-fixed-variant: #474747;
+  --color-on-primary-container: #757575;
+
+  /* Secondary */
+  --color-secondary: #c7c6c6;
+  --color-secondary-fixed: #e3e2e2;
+  --color-secondary-fixed-dim: #c7c6c6;
+  --color-secondary-container: #484949;
+  --color-on-secondary: #2f3131;
+  --color-on-secondary-fixed: #1a1c1c;
+  --color-on-secondary-fixed-variant: #464747;
+  --color-on-secondary-container: #b8b8b8;
+
+  /* Tertiary */
+  --color-tertiary: #c6c6c7;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-tertiary-container: #000000;
+  --color-on-tertiary: #2f3131;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-on-tertiary-fixed-variant: #454747;
+  --color-on-tertiary-container: #747576;
+
+  /* On-surface */
+  --color-on-surface: #e2e2e2;
+  --color-on-surface-variant: #cfc4c5;
+  --color-on-background: #e2e2e2;
+  --color-inverse-surface: #e2e2e2;
+  --color-inverse-on-surface: #2f3131;
+
+  /* Outline */
+  --color-outline: #988e90;
+  --color-outline-variant: #4c4546;
+
+  /* Error */
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  /* Font families — reference CSS variables set on <html> by next/font */
+  --font-display-lg: var(--font-bebas-neue), sans-serif;
+  --font-headline-lg: var(--font-bebas-neue), sans-serif;
+  --font-headline-lg-mobile: var(--font-bebas-neue), sans-serif;
+  --font-headline-md: var(--font-bebas-neue), sans-serif;
+  --font-body-lg: var(--font-bodoni-moda), serif;
+  --font-body-md: var(--font-bodoni-moda), serif;
+  --font-label-sm: var(--font-geist-sans), sans-serif;
+
+  /* Spacing */
+  --spacing-margin-desktop: 80px;
+  --spacing-margin-mobile: 20px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 4px;
+
+  /* Border radius */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* Compound font-size utilities (size + line-height + letter-spacing + weight) */
+@utility text-display-lg {
+  font-size: 120px;
+  line-height: 100px;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+@utility text-headline-lg {
+  font-size: 64px;
+  line-height: 64px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+@utility text-headline-lg-mobile {
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 400;
+}
+
+@utility text-headline-md {
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+@utility text-body-lg {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@utility text-label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+@utility max-w-max-width {
+  max-width: 1440px;
+}
+
+/* Non-@theme runtime theme variables (Tailwind won't resolve these at build time) */
+:root {
+  --banc-body-bg: #0c0f0f;
+  --banc-body-color: #e2e2e2;
+  --banc-glass-bg: rgba(18, 20, 20, 0.75);
+  --banc-mega-start: #121414;
+  --banc-mega-end: rgba(18, 20, 20, 0.98);
+}
+
+/* Glass morphism panel (craftsmanship section) */
+.glass-panel {
+  background: var(--banc-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Mega menu solid-to-near-solid gradient overlay */
+.mega-menu-gradient {
+  background: linear-gradient(to bottom, var(--banc-mega-start) 0%, var(--banc-mega-end) 100%);
+}
+
+/* Icon font settings */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/* Glass morphism for navbar */
+.glass-nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Fade-out mask on hero image bottom edge */
+.hero-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+body {
+  background-color: var(--banc-body-bg);
+  color: var(--banc-body-color);
+}
+
+/* Keep browser autofill visually aligned with active theme */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-on-surface);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface-container-lowest) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
